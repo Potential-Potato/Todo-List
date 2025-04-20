@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 
-import "../assets/EditTodo.css";
+import "./editTodo.css";
 const EditTodo = ({ isOpen, onClose, todo, onSave }) => {
   const [description, setDescription] = useState("");
 
