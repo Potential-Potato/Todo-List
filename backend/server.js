@@ -8,7 +8,7 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: true,
+    origin: "*",
     // process.env.NODE_ENV === "production"
     //   ? "https://todo-list-a4fs.onrender.com"
     //   : "http://localhost:5173",
