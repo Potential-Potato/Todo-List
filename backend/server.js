@@ -17,6 +17,12 @@ app.use(
   })
 );
 
+app.use((err, req, res, next) => {
+  console.error("Error message:", err.message);
+  console.error("Stack trace:", err.stack);
+  res.status(500).json({ message: "Server error", error: err.message });
+});
+
 app.use("/todos", todoRoutes);
 
 const PORT = process.env.PORT || 3000;
