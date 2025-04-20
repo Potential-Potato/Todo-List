@@ -8,6 +8,7 @@ router.get("/", async (req, res) => {
     const result = await pool.query("SELECT * FROM todo ORDER BY todo_id ASC");
     res.json(result.rows);
   } catch (error) {
+    console.log("error:", error);
     console.error(error.message);
     res.status(500).send("Server error");
   }
