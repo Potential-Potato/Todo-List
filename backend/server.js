@@ -7,21 +7,10 @@ const cors = require("cors");
 const todoRoutes = require("./routes/todo");
 const app = express();
 
-const allowedOrigins = [
-  "http://localhost:5173",
-  "https://todo-list-a4fs.onrender.com", // replace with your actual Render static site URL
-];
-
 app.use(express.json());
 app.use(
   cors({
-    origin: function (origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
+    origin: "https://todo-list-a4fs.onrender.com",
     credentials: true,
     methods: ["GET", "POST", "PATCH", "PUT", "DELETE"],
   })
