@@ -1,6 +1,4 @@
-if (process.env.NODE_ENV !== "production") {
-  require("dotenv").config();
-}
+require("dotenv").config();
 
 const express = require("express");
 const cors = require("cors");
@@ -10,7 +8,10 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: "https://todo-list-a4fs.onrender.com",
+    origin:
+      process.env.NODE_ENV === "production"
+        ? "https://todo-list-a4fs.onrender.com"
+        : "http://localhost:5173",
     credentials: true,
     methods: ["GET", "POST", "PATCH", "PUT", "DELETE"],
   })
